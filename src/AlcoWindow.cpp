@@ -51,7 +51,7 @@ namespace alco::window
 			while (this->IsRunning()) this->m_Update(1);
 		});
 		m_async = true;
-		while (!m_running);
+		while (!m_running || !m_hwnd) std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
 	void Window::Update()
